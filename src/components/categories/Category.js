@@ -1,10 +1,16 @@
 import React from 'react'
 import './Category.css';
 
-function Category({category}) {
+function Category(props) {
+    const {category,active} = props;
+
+    const categoryHandler = () => {
+        props.changeSelectedCategory(category.id);
+    }
+    
     return (
-        <div className="category">
-            <a href={category.image}><img src={category.image!== ''? category.image : '/images/no_image.png'} alt={category.id} name={category.name} /></a>
+        <div className={active ? "category active" : "category"} onClick={() => categoryHandler()}>
+            <img src={category.image!== ''? category.image : '/images/no_image.png'} alt={category.id} name={category.name} />
             <div className="desc">{category.name}</div>
         </div>
     );

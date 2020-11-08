@@ -2,7 +2,16 @@ div.category {
     margin: 5px;
     border: 1px solid #ccc;
     float: left;
-    width: 180px;
+    width: 120px;
+    height: 100px;
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+  }
+
+  div.active {
+    border: 1px solid #777;
   }
   
   div.category:hover {
@@ -10,11 +19,13 @@ div.category {
   }
   
   div.category img {
-    width: 100%;
-    height: auto;
+    width: 50%;
+    height: 50%;
+    margin: 5px;
   }
   
   div.desc {
     padding: 15px;
     text-align: center;
+    
   }
