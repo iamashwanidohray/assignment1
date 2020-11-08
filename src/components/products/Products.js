@@ -5,7 +5,6 @@ import './Products.css';
 
 function Products({products,activePage,numOfPages,setActivePage}) {
 
-
     return (
         <div className="products">
             <div className="row">

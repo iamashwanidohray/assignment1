@@ -8,13 +8,10 @@ function MainPage() {
 
     const [categories, setCategories] = useState(null);
     const [selectedCategory, setSelectedCategory] = useState(0);
-    // const [isLoaded, setIsLoaded] = useState(false);
-    // const [error, setError] = useState(null);
 
     const [products, setProducts] = useState(null);
     const [numOfPages, setNumOfPages] = useState(null);
     const [activePage, setActivePage] = useState(1);
-    // const categoryId = 0;
 
 
     useEffect(() => {
@@ -24,13 +21,10 @@ function MainPage() {
             // handle the result
             (result) => {
                 setCategories(result.category);
-                // setIsLoaded(true);
             },
 
             // Handle error 
             (error) => {
-                // setIsLoaded(true);
-                // setError(error);
             },
         )
     },[]);
