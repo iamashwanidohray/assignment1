@@ -1,22 +1,35 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
+import Pagination from '../../layouts/Pagination';
+import Product from './Product';
+import './Products.css';
 
-function Products() {
+function Products({products,activePage,numOfPages,setActivePage}) {
 
-    const [products, setProducts] = useState(null);
-    const [numOfPages, setNumOfPages] = useState(null);
-    const [activePage, setActivePage] = useState(1);
 
-    useEffect(() => {
-        fetch('https://testing.pogo91.com/api/online-store/category/product/?store_prefix=cake-shop&page=1&category_id=0').then(response => response.json()).then(result => {
-            setProducts(result.products);
-            setNumOfPages(result.num_pages);
-        })
-    },[])
-
-    console.log(products);
     return (
-        <div>
+        <div className="products">
+            <div className="row">
+                {
+                    (products !== null && products.length !== 0) ?  products.map((product,index) => {
+                        return (
+                            <div className="column" key={index}>
+                                <Product  product={product}  />
+                            </div>
+                        );
+                    }) : 
 
+                    <div className="noProductFound">
+                        <img src="/images/no_products.png" alt="No Products Found.." />
+
+                    </div>
+                    
+                }
+                
+                
+            </div>
+                {
+                    (products !== null  && products.length !== 0 && numOfPages > 1) && <Pagination activePage={activePage} numOfPages={numOfPages} setActivePage={setActivePage}/>
+                }
         </div>
     )
 }

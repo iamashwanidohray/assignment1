@@ -1,14 +1,10 @@
 import './App.css';
-// import Categories from './components/categories/Categories';
-import Products from './components/products/Products';
+import MainPage from './layouts/MainPage';
 
 function App() {
   return (
     <div className="App">
-      {/* <h1>Category List</h1> */}
-      {/* <Categories /> */}
-      <h1>Products List</h1>
-      <Products />
+      <MainPage />
     </div>
   );
 }
